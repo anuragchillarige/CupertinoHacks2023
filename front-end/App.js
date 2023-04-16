@@ -7,6 +7,7 @@ import LoginScreen from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import CreateEventScreen from "./screens/CreateEventScreen";
 import Settings from "./screens/Settings";
+import MyEventScreen from "./screens/MyEventScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,11 @@ export default function App() {
 					name="Sign Up"
 					component={SignUp}
 					options={{ title: "Sign Up" }}
+				/>
+				<Stack.Screen
+					name = "MyEvents"
+					component = {MyEventScreen}
+					options = {{title: "MyEvents", headerShown: false}}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

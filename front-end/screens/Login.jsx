@@ -4,6 +4,7 @@ import { Button, Text, TextInput, View, Alert, StyleSheet, Image, SafeAreaView, 
 
 
 
+
 export default function Login({ navigation }) {
     const [email, getName] = useState("")
     const [password, getPassword] = useState("")
