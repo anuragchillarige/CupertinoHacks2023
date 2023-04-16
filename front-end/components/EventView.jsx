@@ -55,6 +55,10 @@ export default function EventView({ eventName, location, date, startTime, endTim
                 <Text style={styles.otherText}>Date and Time: {date} at {startTime} </Text>
                 <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
                     <Text style={styles.otherText}>Details: {details} </Text>
+                    
+                </View>
+                <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
+                    <Text style={styles.otherText}>Host: {host}</Text>
                     <Image source={require("../assets/pfp.webp")} style={{
                         backgroundColor: 'white',
                         height: 30,

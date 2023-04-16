@@ -75,6 +75,19 @@ export default function Login({ navigation }) {
             shadowRadius: 3,
             shadowColor: '#3446eb',
             justifyContent: 'center',
+        },
+        backButton: {
+            width: '80%',
+            marginTop: 25,
+            backgroundColor: '#75c4dc',
+            alignSelf: 'center',
+            height: '10%',
+            borderRadius: 5,
+            shadowOpacity: 1,
+            shadowOffset: { width: 0, height: 0 },
+            shadowRadius: 1,
+            shadowColor: 'black',
+            justifyContent: 'center',
         }
 
     })
@@ -91,7 +104,9 @@ export default function Login({ navigation }) {
                 <TouchableOpacity style={style.button} onPress={() => {
                     findLogin()
                 }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Login</Text></TouchableOpacity>
-                <Button title="Create an account" onPress={() => navigation.navigate("SignUp")}></Button>
+                <TouchableOpacity style={style.backButton} onPress={() => {
+                    navigation.navigate("SignUp")
+                }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Create an Account</Text></TouchableOpacity>
             </View>
         </SafeAreaView>
     )
