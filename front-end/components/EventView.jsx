@@ -56,7 +56,10 @@ export default function EventView({ eventName, location, date, startTime, endTim
                 <Text style={styles.otherText}>Date and Time: {date} at {startTime} </Text>
                 <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
                     <Text style={styles.otherText}>Details: {details} </Text>
-                    <Text>Host: {host}</Text>
+                    
+                </View>
+                <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
+                    <Text style={styles.otherText}>Host: {host}</Text>
                     <TouchableOpacity style={styles.button} onPress={() => addToEvent()}>
                         <Text style={styles.headline}>+</Text>
                     </TouchableOpacity>
