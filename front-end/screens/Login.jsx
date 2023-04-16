@@ -1,25 +1,26 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { forgotPassword, login } from "../firebase"
-import { Button, Text, TextInput, View, Alert, StyleSheet, Image, SafeAreaView, TouchableOpacity} from "react-native"
+import { Button, Text, TextInput, View, Alert, StyleSheet, Image, SafeAreaView, TouchableOpacity } from "react-native"
 
 
 
-export default function Login() {
-    const[email, getName] = useState("")
-    const[password, getPassword] = useState("")
+export default function Login({ navigation }) {
+    const [email, getName] = useState("")
+    const [password, getPassword] = useState("")
 
 
-    const findLogin = async() => {
+    const findLogin = async () => {
         if (email !== '' && password !== '') {
             const result = await login(email, password)
             if (!result) {
                 Alert.alert("Unable To Find Account, please double check fields")
             } else {
-                Alert.alert("Sucess! Welcome Back!.")
+                Alert.alert("Sucess! Welcome Back!")
+                navigation.navigate('Settings')
             }
 
-         } else {
-        Alert.alert("Login Failed", "Please enter in all fields")
+        } else {
+            Alert.alert("Login Failed", "Please enter in all fields")
         }
     }
 
@@ -28,26 +29,26 @@ export default function Login() {
             flex: 1,
             padding: 20,
             backgroundColor: '#eaeaea',
-          },
-          logo: {
+        },
+        logo: {
             flex: 1,
-            width: "60%", 
-            height: 40, 
+            width: "60%",
+            height: 40,
             resizeMode: "contain",
             alignSelf: "center"
 
-          },
-          title: {
+        },
+        title: {
             marginLeft: '10%',
             fontSize: 25,
             margin: 0,
             marginBottom: '5%'
-          }, 
-          view: {
+        },
+        view: {
             flex: 3,
-        
-          },
-          inputField: {
+
+        },
+        inputField: {
             alignSelf: 'center',
             width: '80%',
             backgroundColor: 'white',
@@ -60,37 +61,37 @@ export default function Login() {
             marginBottom: '5%',
             height: '10%',
             paddingLeft: 10,
-          },
-          button: {
+        },
+        button: {
             width: '80%',
-        marginTop: 50,
-        backgroundColor: 'blue',
-        alignSelf: 'center',
-        height: '10%',
-        borderRadius: 5,
-        shadowOpacity: 1,
-        shadowOffset: { width: 0, height: 0 },
-        shadowRadius: 3,
-        shadowColor: '#3446eb',
-        justifyContent: 'center',
-          }
+            marginTop: 50,
+            backgroundColor: 'blue',
+            alignSelf: 'center',
+            height: '10%',
+            borderRadius: 5,
+            shadowOpacity: 1,
+            shadowOffset: { width: 0, height: 0 },
+            shadowRadius: 3,
+            shadowColor: '#3446eb',
+            justifyContent: 'center',
+        }
 
     })
-    
 
 
-    return(
+
+    return (
         <SafeAreaView style={style.container}>
             <Image style={style.logo} source={require('../assets/transparent-logo.png')} />
-            <View style = {style.view}>
+            <View style={style.view}>
                 <Text style={style.title}> Login To Your Account</Text>
-                <TextInput style = {style.inputField} autoCapitalize="none" placeholder="email" onChangeText={(text) => getName(text)}></TextInput>
-                <TextInput style = {style.inputField} autoCapitalize="none" placeholder="password" onChangeText={(text) => getPassword(text)} secureTextEntry={true}></TextInput>
+                <TextInput style={style.inputField} autoCapitalize="none" placeholder="email" onChangeText={(text) => getName(text)}></TextInput>
+                <TextInput style={style.inputField} autoCapitalize="none" placeholder="password" onChangeText={(text) => getPassword(text)} secureTextEntry={true}></TextInput>
                 <TouchableOpacity style={style.button} onPress={() => {
                     findLogin()
                 }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Login</Text></TouchableOpacity>
             </View>
-            </SafeAreaView>
+        </SafeAreaView>
     )
 
 }
