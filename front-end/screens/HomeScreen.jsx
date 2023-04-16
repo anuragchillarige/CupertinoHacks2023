@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { StyleSheet, View, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Linking, FlatList, Touchable } from 'react-native';
 import Dropdown from '../components/DropDown';
 import SearchBar from '../components/SearchBar';
+import EventView from '../components/EventView';
 
 state = {
   search: '',
@@ -24,31 +25,33 @@ export default function LoginScreen({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
 
-        <FlatList 
-        numColumns={1}
-        keyExtractor={(item) => item.id} 
-        data={people} 
-        renderItem={({ item }) => ( 
-          <Text style={styles.item}>{item.name} {item.id}</Text>
-        )} 
-       />
-
-      <View style={{width:"80%", height:20, backgroundColor:"gray", alignSelf: "center", marginTop:10, flexDirection:"row"}}>
-          <SearchBar />
-          <TouchableOpacity style={{flex:0.1, backgroundColor:"blue"}}>
+      <TouchableOpacity style={styles.overlayButton} >
             <Text style={{alignSelf:'center'}}>
-              +
+              Add Event
             </Text>
 
           </TouchableOpacity>
+        
+        <View style={{flex:0.03}}/>
+      <View style={{flex:1}}>
+        <FlatList 
+          numColumns={1}
+          keyExtractor={(item) => item.id} 
+          data={people} 
+          renderItem={({ item }) => ( 
+            <EventView/>
+          )}
+        />
       </View>
+        
+       
 
        <View style={styles.header}>
           <Image source={require("../assets/transparent-logo.png")} style={styles.logo}/>
           <TouchableOpacity style={styles.profileButton}>
-           
             <Dropdown/>
           </TouchableOpacity>
+          
        </View>
     </SafeAreaView>
 
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: 'white',
     height: 80,
-    borderColor: "#C1C1C1",
+    borderColor: "#75c4dc",
     borderBottomWidth:2,
   },
   logo: {
@@ -83,5 +86,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight:10
+  },
+  overlayButton: {
+    backgroundColor: '#75c4dc',
+
+    width: "90%",
+    height: 60,
+    justifyContent: 'center',
+    alignSelf: "center",
+    alignItems: 'center',
   },
       });    
