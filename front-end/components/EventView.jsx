@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { StyleSheet, TextInput, View, Button, Text, TouchableOpacity, Alert } from 'react-native'
+import { StyleSheet, TextInput, View, Button, Text, TouchableOpacity, Alert, Image } from 'react-native'
 import { db, auth } from '../firebase'
 import { doc, updateDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
@@ -55,7 +55,14 @@ export default function EventView({ eventName, location, date, startTime, endTim
                 <Text style={styles.otherText}>Date and Time: {date} at {startTime} </Text>
                 <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
                     <Text style={styles.otherText}>Details: {details} </Text>
-                    <Text>Host: {host}</Text>
+                    <Image source={require("../assets/pfp.webp")} style={{
+                        backgroundColor: 'white',
+                        height: 30,
+                        width: 30,
+                        borderRadius: 100,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }} /><Text>{host}</Text>
                     <TouchableOpacity style={styles.button} onPress={() => addToEvent()}>
                         <Text style={styles.headline}>+</Text>
                     </TouchableOpacity>
