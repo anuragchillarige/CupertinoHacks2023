@@ -40,6 +40,7 @@ const Dropdown = () => {
         <View style={styles.menu}>
           <TouchableOpacity style={styles.menuItem}>
             <Text style={styles.menuText}>Home</Text>
+        
           </TouchableOpacity>
         </View>
       )}
