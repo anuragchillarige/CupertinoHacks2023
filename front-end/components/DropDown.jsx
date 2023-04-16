@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase';
+import { auth, logout } from '../firebase';
+import { signOut } from 'firebase/auth';
 
 const Dropdown = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +66,10 @@ const Dropdown = () => {
                             navigation.reset()
                         }}
                     >
-                        <Text style={styles.menuText}>Sign Out</Text>
+                        <Text style={styles.menuText} onPress={() => {
+                            logout()
+                            navigation.navigate("Login")
+                        }}>Sign Out</Text>
 
                     </TouchableOpacity>
 
