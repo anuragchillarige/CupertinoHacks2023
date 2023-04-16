@@ -1,5 +1,15 @@
 import React, {useState} from 'react';
-import { StyleSheet, View, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Linking, FlatList } from 'react-native';
+import { StyleSheet, View, SafeAreaView, Image, TextInput, TouchableOpacity, Text, Linking, FlatList, Touchable } from 'react-native';
+import Dropdown from '../components/DropDown';
+import SearchBar from '../components/SearchBar';
+
+state = {
+  search: '',
+};
+
+updateSearch = (search) => {
+  this.setState({ search });
+};
 
 export default function LoginScreen({navigation}) {
     const [people, setPeople] = useState([
@@ -15,15 +25,30 @@ export default function LoginScreen({navigation}) {
     <SafeAreaView style={styles.container}>
 
         <FlatList 
-        numColumns={2}
+        numColumns={1}
         keyExtractor={(item) => item.id} 
         data={people} 
         renderItem={({ item }) => ( 
-          <Text style={styles.item}>{item.name}</Text>
+          <Text style={styles.item}>{item.name} {item.id}</Text>
         )} 
        />
+
+      <View style={{width:"80%", height:20, backgroundColor:"gray", alignSelf: "center", marginTop:10, flexDirection:"row"}}>
+          <SearchBar />
+          <TouchableOpacity style={{flex:0.1, backgroundColor:"blue"}}>
+            <Text style={{alignSelf:'center'}}>
+              +
+            </Text>
+
+          </TouchableOpacity>
+      </View>
+
        <View style={styles.header}>
-          
+          <Image source={require("../assets/FullLogo.png")} style={styles.logo}/>
+          <TouchableOpacity style={styles.profileButton}>
+           
+            <Dropdown/>
+          </TouchableOpacity>
        </View>
     </SafeAreaView>
 
@@ -41,20 +66,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#c62828',
+    backgroundColor: 'white',
     height: 80,
-    paddingHorizontal: 20,
+    borderColor: "#C1C1C1",
+    borderBottomWidth:2,
   },
   logo: {
-    width: 75,
+    width: 250,
     height: 75,
   },
   profileButton: {
-    backgroundColor: '#c62828',
-    height: 30,
-    borderRadius: 5,
+    backgroundColor: 'white',
+    height: 50,
+    width:50,
+    borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    marginRight:10
   },
       });    
