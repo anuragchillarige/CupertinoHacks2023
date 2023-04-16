@@ -22,17 +22,35 @@ const LocationDropdown = ({ navigator, useStateFunc }) => {
 
                 <View style={styles.modalContainer}>
                     <View style={styles.modalContent}>
-                        <TouchableOpacity onPress={() => handleLocationChange('Location 1')}>
-                            <Text style={styles.locationOption}>Location 1</Text>
+                        <TouchableOpacity onPress={() => handleLocationChange('Creekside Park')}>
+                            <Text style={styles.locationOption}>Creekside Park</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => handleLocationChange('Location 2')}>
-                            <Text style={styles.locationOption}>Location 2</Text>
+                        <TouchableOpacity onPress={() => handleLocationChange('Jollyman Park')}>
+                            <Text style={styles.locationOption}>Jollyman Park</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => handleLocationChange('Location 3')}>
-                            <Text style={styles.locationOption}>Location 3</Text>
+                        <TouchableOpacity onPress={() => handleLocationChange('Memorial Park')}>
+                            <Text style={styles.locationOption}>Memorial Park</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => handleLocationChange('Location 4')}>
-                            <Text style={styles.locationOption}>Location 4</Text>
+                        <TouchableOpacity onPress={() => handleLocationChange('Monta Vista Park')}>
+                            <Text style={styles.locationOption}>Monta Vista Park</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('Portal Park')}>
+                            <Text style={styles.locationOption}>Portal Park</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('Wilson Park')}>
+                            <Text style={styles.locationOption}>Wilson Park</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('Sam H. Lawson Middle School')}>
+                            <Text style={styles.locationOption}>Sam H. Lawson Middle School</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('John F Kennedy Middle School')}>
+                            <Text style={styles.locationOption}>John F Kennedy Middle School</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('Hyde Middle School')}>
+                            <Text style={styles.locationOption}>Hyde Middle School</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleLocationChange('Ortega Park')}>
+                            <Text style={styles.locationOption}>Ortega Park</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

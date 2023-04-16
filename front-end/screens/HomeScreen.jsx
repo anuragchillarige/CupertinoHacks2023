@@ -93,7 +93,9 @@ export default function LoginScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
 
-            <TouchableOpacity style={styles.overlayButton} >
+            <TouchableOpacity style={styles.overlayButton} onPress={ () => {
+              navigation.navigate("CreateEvent")
+            }} >
                 <Text style={{ alignSelf: 'center' }}>
                     Add Event
                 </Text>
