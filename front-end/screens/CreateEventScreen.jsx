@@ -38,7 +38,8 @@ export default function CreateEventScreen({ navigation }) {
             startTime: startTime,
             endTime: endTime,
             description: description,
-            host: currUser.uid
+            host: currUser.uid,
+            peopleJoining: [currUser.uid]
         }
 
         try {

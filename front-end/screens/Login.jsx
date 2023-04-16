@@ -16,7 +16,7 @@ export default function Login({ navigation }) {
                 Alert.alert("Unable To Find Account, please double check fields")
             } else {
                 Alert.alert("Sucess! Welcome Back!")
-                navigation.navigate('CreateEvent')
+                navigation.navigate('Home')
             }
 
         } else {
