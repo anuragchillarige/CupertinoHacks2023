@@ -14,18 +14,10 @@ export default function App() {
         <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Welcome'}}
+        options={{title: 'Nice', headerShown:false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
