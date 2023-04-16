@@ -38,7 +38,7 @@ export default function CreateEventScreen({ navigation }) {
             startTime: startTime,
             endTime: endTime,
             description: description,
-            host: currUser.uid,
+            host: currUser.displayName,
             peopleJoining: [currUser.uid]
         }
 
@@ -70,9 +70,9 @@ export default function CreateEventScreen({ navigation }) {
             <View style={{ flex: 0.4, marginTop: 20 }}>
                 <TextInput style={styles.inputField} placeholder='Description' value={description} onChangeText={(newText) => setDescription(newText)} />
             </View>
-            <View  style={{ flex: 0.4, width: "100%", alignItems: 'center' }}>
-              <LocationDropdown useStateFunc={setLocation} style={{width:"100%"}}/>
-              <DateSelectField changeStartTime={setStartTime} changeEndTime={setEndTime} changeDate={setDate} />
+            <View style={{ flex: 0.4, width: "100%", alignItems: 'center' }}>
+                <LocationDropdown useStateFunc={setLocation} style={{ width: "100%" }} />
+                <DateSelectField changeStartTime={setStartTime} changeEndTime={setEndTime} changeDate={setDate} />
             </View>
 
             <View style={{ flex: 0.1, marginTop: 20 }}>
