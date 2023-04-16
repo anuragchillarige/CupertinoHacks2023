@@ -58,15 +58,17 @@ export default function EventView({ eventName, location, date, startTime, endTim
                     
                 </View>
                 <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
-                    <Text style={styles.otherText}>Host: {host}</Text>
+                    <View style={{flexDirection: "row", justifyContent: "space-between"}}>
                     <Image source={require("../assets/pfp.webp")} style={{
+                        marginTop:20,
                         backgroundColor: 'white',
                         height: 30,
                         width: 30,
                         borderRadius: 100,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }} /><Text>{host}</Text>
+                    }} />
+                    <Text style={styles.otherText2}>{host}</Text>
+                    </View>
+                
                     <TouchableOpacity style={styles.button} onPress={() => addToEvent()}>
                         <Text style={styles.headline}>+</Text>
                     </TouchableOpacity>
@@ -121,6 +123,15 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginVertical: 15,
         color: 'black'
+
+    },
+    otherText2: {
+        fontWeight: '200',
+        fontSize: 18,
+        marginVertical: 15,
+        color: 'black',
+        marginLeft: 20,
+        marginTop: 20
 
     },
     button: {
