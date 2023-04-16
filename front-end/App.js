@@ -6,9 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import CreateEventScreen from "./screens/CreateEventScreen";
-import Login from "./screens/Login";
 import Settings from "./screens/Settings";
-import SignUp from "./screens/SignUp";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,15 +14,15 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
-        <Stack.Screen
+				<Stack.Screen
 					name="CreateEvent"
 					component={CreateEventScreen}
-					options={{ title: "CreateEvent" , headerShown: false}}
+					options={{ title: "CreateEvent", headerShown: false }}
 				/>
-        <Stack.Screen
+				<Stack.Screen
 					name="SignUp"
 					component={SignUp}
-					options={{ title: "Login" , headerShown: false}}
+					options={{ title: "Sign Up", headerShown: false }}
 				/>
 				<Stack.Screen
 					name="Settings"

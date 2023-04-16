@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { register } from '../firebase.js'
 import { SafeAreaView, View, Text, TextInput, Button, StyleSheet, Image, Touchable, TouchableOpacity } from 'react-native'
 import { Alert } from 'react-native'
@@ -5,10 +6,6 @@ import { Alert } from 'react-native'
 import { useFonts } from 'expo-font'
 
 export default function SignUp() {
-
-    // const name = useRef(null)
-    // const email = useRef(null)
-    // const password = useRef(null)
 
     const [loaded] = useFonts({
         Montserrat: require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),

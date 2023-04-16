@@ -16,7 +16,7 @@ export default function Login({ navigation }) {
                 Alert.alert("Unable To Find Account, please double check fields")
             } else {
                 Alert.alert("Sucess! Welcome Back!")
-                navigation.navigate('Settings')
+                navigation.navigate('CreateEvent')
             }
 
         } else {
@@ -90,6 +90,7 @@ export default function Login({ navigation }) {
                 <TouchableOpacity style={style.button} onPress={() => {
                     findLogin()
                 }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Login</Text></TouchableOpacity>
+                <Button title="Create an account" onPress={() => navigation.navigate("SignUp")}></Button>
             </View>
         </SafeAreaView>
     )

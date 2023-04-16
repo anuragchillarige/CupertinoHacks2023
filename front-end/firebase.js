@@ -6,6 +6,8 @@ import {
 	createUserWithEmailAndPassword,
 	sendPasswordResetEmail,
 	signOut,
+	updateCurrentUser,
+	updateProfile,
 } from "firebase/auth";
 
 import {
@@ -50,13 +52,12 @@ const register = async (name, email, password) => {
 		console.log("in regsiter function");
 		const res = await createUserWithEmailAndPassword(auth, email, password);
 		const user = res.user;
-		await addDoc(collection(db, "users"), {
-			uid: user.uid,
-			name,
-			authProvider: "local",
-			email,
-		});
 
+		if (auth.currentUser !== null) {
+			await updateProfile(auth.currentUser, {
+				displayName: name,
+			});
+		}
 		return true;
 	} catch (err) {
 		console.log(err);
