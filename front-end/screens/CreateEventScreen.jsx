@@ -64,15 +64,14 @@ export default function CreateEventScreen({ navigation }) {
         <SafeAreaView style={styles.container}>
             <TouchableOpacity style={styles.signUpButton} onPress={() => {
                 submitData()
+                navigation.navigate("Home")
             }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Create Event</Text></TouchableOpacity>
-            <View style={{ flex: 0.6, marginTop: 20 }}>
+            <View style={{ flex: 0.4, marginTop: 20 }}>
                 <TextInput style={styles.inputField} placeholder='Description' value={description} onChangeText={(newText) => setDescription(newText)} />
             </View>
-            <View style={{ flexDirection: 'row', flex: 0.2, width: "100%", justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ width: "50%", marginTop: 20, height: "100%" }}>
-                    <LocationDropdown useStateFunc={setLocation} />
-                </View>
-                <DateSelectField changeStartTime={setStartTime} changeEndTime={setEndTime} changeDate={setDate} />
+            <View  style={{ flex: 0.4, width: "100%", alignItems: 'center' }}>
+              <LocationDropdown useStateFunc={setLocation} style={{width:"100%"}}/>
+              <DateSelectField changeStartTime={setStartTime} changeEndTime={setEndTime} changeDate={setDate} />
             </View>
 
             <View style={{ flex: 0.1, marginTop: 20 }}>
@@ -152,14 +151,14 @@ const styles = StyleSheet.create({
     signUpButton: {
         width: '80%',
         marginTop: 50,
-        backgroundColor: 'blue',
+        backgroundColor: '#75c4dc',
         alignSelf: 'center',
         height: '10%',
         borderRadius: 5,
         shadowOpacity: 1,
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 3,
-        shadowColor: '#3446eb',
+        shadowColor: 'white',
         justifyContent: 'center',
     }
 });    

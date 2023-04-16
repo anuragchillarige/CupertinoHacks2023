@@ -57,6 +57,8 @@ const LocationDropdown = ({ navigator, useStateFunc }) => {
 const styles = StyleSheet.create({
     container: {
         margin: 10,
+        width: "80%",
+        paddingTop: 10,
     },
     label: {
         marginBottom: 5,
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         borderWidth: 1,
-        borderColor: 'gray',
+        borderColor: '#ccc',
         borderRadius: 5,
         padding: 10,
     },

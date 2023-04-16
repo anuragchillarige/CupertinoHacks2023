@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Modal, TouchableOpacity, StyleSheet } from 'react-native';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-const DateSelectField = ({ onDateSelect, changeStartTime, changeEndTime, changeDate }) => { // Accepts a callback function as a prop
+const DateSelectField = ({ onDateSelect, changeStartTime, changeEndTime, changeDate }, {navigation}) => { // Accepts a callback function as a prop
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedStartTime, setSelectedStartTime] = useState('');
     const [modalVisible, setModalVisible] = useState(false);
@@ -37,7 +37,6 @@ const DateSelectField = ({ onDateSelect, changeStartTime, changeEndTime, changeD
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>Date</Text>
             <TouchableOpacity
                 style={styles.inputContainer}
                 onPress={() => setShowDatePicker(true)}
@@ -50,34 +49,40 @@ const DateSelectField = ({ onDateSelect, changeStartTime, changeEndTime, changeD
                 onConfirm={handleDateChange}
                 onCancel={() => setShowDatePicker(false)}
             />
+            <View style={{flex: 0.2}}/>
+            <View style= {{flexDirection: "row", flex: 1}}>
+              <TouchableOpacity
+                  style={styles.inputContainer}
+                  onPress={() => setShowStartTimePicker(true)}
+              >
+                  <Text style={styles.input}>{selectedStartTime ? selectedStartTime : 'Start time'}</Text>
+              </TouchableOpacity>
 
+              
+                <DateTimePickerModal
+                    isVisible={showStartTimePicker}
+                    mode=" start time"
+                    onConfirm={handleStartTimeChange}
+                    onCancel={() => setShowStartTimePicker(false)}
+                />
 
-            <Text style={styles.label}>Start Time - End Time</Text>
-            <TouchableOpacity
-                style={styles.inputContainer}
-                onPress={() => setShowStartTimePicker(true)}
-            >
-                <Text style={styles.input}>{selectedStartTime ? selectedStartTime : 'Select a start time'}</Text>
-            </TouchableOpacity>
-            <DateTimePickerModal
-                isVisible={showStartTimePicker}
-                mode=" start time"
-                onConfirm={handleStartTimeChange}
-                onCancel={() => setShowStartTimePicker(false)}
-            />
+                <Text style={{fontSize: 40}}>
+                  -
+                </Text>
 
-            <TouchableOpacity
-                style={styles.inputContainer}
-                onPress={() => setShowEndTimePicker(true)}
-            >
-                <Text style={styles.input}>{selectedEndTime ? selectedEndTime : 'Select a end time'}</Text>
-            </TouchableOpacity>
-            <DateTimePickerModal
-                isVisible={showEndTimePicker}
-                mode=" end time"
-                onConfirm={handleEndTimeChange}
-                onCancel={() => setShowEndTimePicker(false)}
-            />
+                <TouchableOpacity
+                    style={styles.inputContainer}
+                    onPress={() => setShowEndTimePicker(true)}
+                >
+                    <Text style={styles.input}>{selectedEndTime ? selectedEndTime : 'End time'}</Text>
+                </TouchableOpacity>
+                <DateTimePickerModal
+                    isVisible={showEndTimePicker}
+                    mode=" end time"
+                    onConfirm={handleEndTimeChange}
+                    onCancel={() => setShowEndTimePicker(false)}
+                />
+            </View>
         </View>
     );
 };
@@ -86,14 +91,19 @@ const styles = StyleSheet.create({
     container: {
         marginVertical: 10,
         paddingRight: 20,
+        justifyContent: 'space-between',
+        width: "80%",
+        height: 150
     },
     label: {
         marginBottom: 5,
         fontSize: 16,
         fontWeight: 'bold',
+        flexDirection:"row",
     },
     inputContainer: {
         flexDirection: 'row',
+        flex: 0.5,
         alignItems: 'center',
         backgroundColor: 'white',
         padding: 10,

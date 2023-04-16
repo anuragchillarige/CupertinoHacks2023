@@ -38,10 +38,23 @@ const Dropdown = () => {
       </TouchableOpacity>
       {isOpen && (
         <View style={styles.menu}>
-          <TouchableOpacity style={styles.menuItem}>
-            <Text style={styles.menuText}>Home</Text>
-        
+           <TouchableOpacity style={styles.menuItem}
+          onPress={() => {
+            navigation.reset()
+          }}
+          >
+            <Text style={styles.menuText}>Your Events</Text>
+
           </TouchableOpacity>
+          <TouchableOpacity style={styles.menuItem}
+          onPress={() => {
+            navigation.reset()
+          }}
+          >
+            <Text style={styles.menuText}>Sign Out</Text>
+
+          </TouchableOpacity>
+         
         </View>
       )}
     </View>
