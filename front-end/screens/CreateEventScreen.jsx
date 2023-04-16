@@ -63,15 +63,19 @@ export default function CreateEventScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
+            <TouchableOpacity style={styles.backButton} onPress={() => {
+                navigation.pop()
+            }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Back</Text></TouchableOpacity>
             <TouchableOpacity style={styles.signUpButton} onPress={() => {
                 submitData()
                 navigation.navigate("Home")
             }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Create Event</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.signUpButton} onPress={() => {
-                navigation.pop()
-            }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Back</Text></TouchableOpacity>
+            
             <View style={{ flex: 0.4, marginTop: 20 }}>
                 <TextInput style={styles.inputField} placeholder='Description' value={description} onChangeText={(newText) => setDescription(newText)} />
+            </View>
+            <View style={{flex: 0.1}}>
+
             </View>
             <View style={{ flex: 0.4, width: "100%", alignItems: 'center' }}>
                 <LocationDropdown useStateFunc={setLocation} style={{ width: "100%" }} />
@@ -154,7 +158,20 @@ const styles = StyleSheet.create({
     },
     signUpButton: {
         width: '80%',
-        marginTop: 50,
+        marginTop: 20,
+        backgroundColor: '#2d64ac',
+        alignSelf: 'center',
+        height: '10%',
+        borderRadius: 5,
+        shadowOpacity: 1,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 3,
+        shadowColor: 'white',
+        justifyContent: 'center',
+    },
+    backButton: {
+        width: '80%',
+        marginTop: 20,
         backgroundColor: '#75c4dc',
         alignSelf: 'center',
         height: '10%',
