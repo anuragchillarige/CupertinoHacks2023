@@ -75,7 +75,7 @@ export default function LoginScreen({ navigation }) {
                     data['endTime'] = properTime
                     data['docID'] = event.id
 
-                    tempArr.push(data)
+                    if (data['peopleJoining'].includes(currUser.uid)) tempArr.push(data)
                     i++
                 })
 
@@ -93,8 +93,8 @@ export default function LoginScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
 
-            <TouchableOpacity style={styles.overlayButton} onPress={ () => {
-              navigation.navigate("Home")
+            <TouchableOpacity style={styles.overlayButton} onPress={() => {
+                navigation.navigate("Home")
             }} >
                 <Text style={{ alignSelf: 'center' }}>
                     Back
@@ -109,7 +109,7 @@ export default function LoginScreen({ navigation }) {
                     keyExtractor={(item) => item.id}
                     data={people}
                     renderItem={({ item }) => (
-                        < EventView eventName={item.eventName} location={item.location} date={item.date} startTime={item.startTime} details={item.description} docID={item.docID} attendees={[]} />
+                        < EventView eventName={item.eventName} location={item.location} date={item.date} startTime={item.startTime} details={item.description} docID={item.docID} attendees={item.peopleJoining} host={item.host} />
                     )}
                 />
             </View>

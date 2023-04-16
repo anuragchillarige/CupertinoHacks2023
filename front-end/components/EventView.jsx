@@ -40,7 +40,6 @@ export default function EventView({ eventName, location, date, startTime, endTim
         if (attendees.includes(currUser.uid)) {
             setInEvent(true)
         }
-        console.log(inEvent)
 
     }, [])
 
