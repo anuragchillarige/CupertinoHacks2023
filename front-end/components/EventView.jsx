@@ -1,21 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { StyleSheet, TextInput, View, Button, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, TextInput, View, Button, Text, TouchableOpacity, Alert } from 'react-native'
 import { db, auth } from '../firebase'
 import { doc, updateDoc } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
 
 
-export default function EventView({ eventName, location, date, startTime, endTime, details, docID, attendees }) {
+export default function EventView({ eventName, location, date, startTime, endTime, details, docID, attendees, host }) {
 
     const [currUser, loading] = useAuthState(auth)
     const [inEvent, setInEvent] = useState(false)
+    const [eventHost, setEventHost] = useState('')
 
     const addToEvent = async () => {
         if (!attendees.includes(currUser.uid)) {
 
-            await updateDoc(doc(db, "events", docID), {
-                people: [...people, currUser.uid]
-            })
+            console.log("hello there!")
+            console.log(attendees)
+
+            try {
+                await updateDoc(doc(db, "events", docID), {
+                    peopleJoining: [...attendees, currUser.uid]
+                })
+            }
+            catch (e) {
+                console.log(e)
+                Alert.alert("Error", "Could not join event.")
+            }
         }
 
         setInEvent(true)
@@ -29,6 +40,7 @@ export default function EventView({ eventName, location, date, startTime, endTim
         if (attendees.includes(currUser.uid)) {
             setInEvent(true)
         }
+        console.log(inEvent)
 
     }, [])
 
@@ -44,7 +56,8 @@ export default function EventView({ eventName, location, date, startTime, endTim
                 <Text style={styles.otherText}>Date and Time: {date} at {startTime} </Text>
                 <View style={{ width: "100%", flexDirection: "row", justifyContent: "space-between", alignContent: "center" }}>
                     <Text style={styles.otherText}>Details: {details} </Text>
-                    <TouchableOpacity style={styles.button} onPress={() => addToEvent}>
+                    <Text>Host: {host}</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => addToEvent()}>
                         <Text style={styles.headline}>+</Text>
                     </TouchableOpacity>
                 </View>

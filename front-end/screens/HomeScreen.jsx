@@ -93,8 +93,8 @@ export default function LoginScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
 
-            <TouchableOpacity style={styles.overlayButton} onPress={ () => {
-              navigation.navigate("CreateEvent")
+            <TouchableOpacity style={styles.overlayButton} onPress={() => {
+                navigation.navigate("CreateEvent")
             }} >
                 <Text style={{ alignSelf: 'center' }}>
                     Add Event
@@ -109,7 +109,7 @@ export default function LoginScreen({ navigation }) {
                     keyExtractor={(item) => item.id}
                     data={people}
                     renderItem={({ item }) => (
-                        < EventView eventName={item.eventName} location={item.location} date={item.date} startTime={item.startTime} details={item.description} docID={item.docID} attendees={[]} />
+                        < EventView eventName={item.eventName} location={item.location} date={item.date} startTime={item.startTime} details={item.description} docID={item.docID} attendees={item.peopleJoining} host={item.host} />
                     )}
                 />
             </View>
