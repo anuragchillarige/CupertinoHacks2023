@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import SignUp from '../screens/SignUp';
+import Login from '../screens/Login';
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +42,7 @@ const Dropdown = () => {
         <View style={styles.menu}>
            <TouchableOpacity style={styles.menuItem}
           onPress={() => {
-            navigation.reset()
+            navigation.pop()
           }}
           >
             <Text style={styles.menuText}>Your Events</Text>
@@ -48,7 +50,7 @@ const Dropdown = () => {
           </TouchableOpacity>
           <TouchableOpacity style={styles.menuItem}
           onPress={() => {
-            navigation.reset()
+            navigation.pop(Login)
           }}
           >
             <Text style={styles.menuText}>Sign Out</Text>

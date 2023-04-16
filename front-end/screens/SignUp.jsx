@@ -3,13 +3,8 @@ import { register } from '../firebase.js'
 import { SafeAreaView, View, Text, TextInput, Button, StyleSheet, Image, Touchable, TouchableOpacity } from 'react-native'
 import { Alert } from 'react-native'
 
-import { useFonts } from 'expo-font'
 
-export default function SignUp() {
-
-    const [loaded] = useFonts({
-        Montserrat: require('../assets/fonts/Montserrat-VariableFont_wght.ttf'),
-    });
+export default function SignUp({navigation}) {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -27,7 +22,7 @@ export default function SignUp() {
             }
 
             else {
-                Alert.alert("Sign Up Failed", "Passwords must match.")
+                Alert.alert("Welcome!")
             }
         }
 
@@ -48,6 +43,9 @@ export default function SignUp() {
                 <TouchableOpacity style={styles.signUpButton} onPress={() => {
                     signUpCallback()
                 }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Sign up</Text></TouchableOpacity>
+                 <TouchableOpacity style={styles.backButton} onPress={() => {
+                    navigation.pop()
+                }}><Text style={{ color: 'black', textAlign: 'center', fontSize: 18, }}>Back</Text></TouchableOpacity>
             </View>
         </SafeAreaView>
     )
@@ -99,6 +97,20 @@ const styles = StyleSheet.create({
         width: '80%',
         marginTop: 50,
         backgroundColor: 'blue',
+        alignSelf: 'center',
+        height: '10%',
+        borderRadius: 5,
+        shadowOpacity: 1,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 3,
+        shadowColor: '#3446eb',
+        justifyContent: 'center',
+    },
+
+    backButton: {
+        width: '80%',
+        marginTop: 50,
+        backgroundColor: '#75c4dc',
         alignSelf: 'center',
         height: '10%',
         borderRadius: 5,
