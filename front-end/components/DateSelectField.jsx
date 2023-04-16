@@ -6,12 +6,24 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 const DateSelectField = ({ onDateSelect }) => { // Accepts a callback function as a prop
   const [selectedDate, setSelectedDate] = useState('');
+  const [selectedStartTime, setSelectedStartTime] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showStartTimePicker, setShowStartTimePicker] = useState(false);
+  const [showEndTimePicker, setShowEndTimePicker] = useState(false);
+  const [selectedEndTime, setSelectedEndTime] = useState('');
 
   const handleDateChange = (date) => {
     setSelectedDate(date.toDateString());
     setShowDatePicker(false);
+  };
+  const handleStartTimeChange = (startTime) => {
+    setSelectedStartTime(startTime.toTimeString());
+    setShowStartTimePicker(false);
+  };
+  const handleEndTimeChange = (EndTime) => {
+    setSelectedEndTime(EndTime.toTimeString());
+    setShowEndTimePicker(false);
   };
 
   return (
@@ -28,6 +40,34 @@ const DateSelectField = ({ onDateSelect }) => { // Accepts a callback function a
         mode="date"
         onConfirm={handleDateChange}
         onCancel={() => setShowDatePicker(false)}
+      />
+
+
+      <Text style={styles.label}>Start Time - End Time</Text>
+      <TouchableOpacity
+        style={styles.inputContainer}
+        onPress={() => setShowStartTimePicker(true)}
+      >
+        <Text style={styles.input}>{selectedStartTime ? selectedStartTime : 'Select a start time'}</Text>
+      </TouchableOpacity>
+      <DateTimePickerModal
+        isVisible={showStartTimePicker}
+        mode=" start time"
+        onConfirm={handleStartTimeChange}
+        onCancel={() => setShowStartTimePicker(false)}
+      />
+      
+      <TouchableOpacity
+        style={styles.inputContainer}
+        onPress={() => setShowEndTimePicker(true)}
+      >
+        <Text style={styles.input}>{selectedEndTime ? selectedEndTime : 'Select a end time'}</Text>
+      </TouchableOpacity>
+      <DateTimePickerModal
+        isVisible={showEndTimePicker}
+        mode=" end time"
+        onConfirm={handleEndTimeChange}
+        onCancel={() => setShowEndTimePicker(false)}
       />
     </View>
   );
