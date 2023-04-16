@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     card: {
         borderRadius: 6,
         elevation: 3,
-        backgroundColor: "#2d64ac",
+        backgroundColor: "white",
         shadowOffset: { width: 1, height: 1 },
         shadowColor: "#333",
         shadowOpacity: 0.55,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: "row",
         borderRadius: 5,
-        backgroundColor: '#75c4dc',
+        backgroundColor: '#2d64ac',
         marginHorizontal: 20
     },
     headline: {
@@ -115,7 +115,9 @@ const styles = StyleSheet.create({
         fontSize: 25,
         marginTop: 0,
         width: 200,
-        color: 'black'
+        color: 'white',
+        textShadowOffset: {width: 1, height: 1},
+        textShadowRadius: 5,
 
     },
     otherText: {
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#75c4dc',
+        backgroundColor: '#2d64ac',
         fontWeight: 'bold',
         color: '#75c4dc',
         width: 40,
