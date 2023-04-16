@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/Login";
 import SignUp from "./screens/SignUp";
 import CreateEventScreen from "./screens/CreateEventScreen";
+import Login from "./screens/Login";
 
 const Stack = createNativeStackNavigator();
 
