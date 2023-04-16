@@ -16,7 +16,6 @@ export default function Login({ navigation }) {
             if (!result) {
                 Alert.alert("Unable To Find Account, please double check fields")
             } else {
-                Alert.alert("Sucess! Welcome Back!")
                 navigation.navigate('Home')
             }
 
