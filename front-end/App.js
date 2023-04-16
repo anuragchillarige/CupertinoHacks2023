@@ -15,6 +15,11 @@ export default function App() {
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen
+					name="Home"
+					component={HomeScreen}
+					options={{ title: "Nice", headerShown: false }}
+				/>
+				<Stack.Screen
 					name="CreateEvent"
 					component={CreateEventScreen}
 					options={{ title: "CreateEvent", headerShown: false }}
@@ -40,12 +45,6 @@ export default function App() {
 					name="Sign Up"
 					component={SignUp}
 					options={{ title: "Sign Up" }}
-				/>
-
-				<Stack.Screen
-					name="Home"
-					component={HomeScreen}
-					options={{ title: "Nice", headerShown: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
