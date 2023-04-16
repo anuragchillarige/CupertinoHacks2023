@@ -3,6 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/Login";
+import SignUp from "./screens/SignUp";
+import CreateEventScreen from "./screens/CreateEventScreen";
 import Login from "./screens/Login";
 import Settings from "./screens/Settings";
 import SignUp from "./screens/SignUp";
@@ -13,6 +16,16 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
+        <Stack.Screen
+					name="CreateEvent"
+					component={CreateEventScreen}
+					options={{ title: "CreateEvent" , headerShown: false}}
+				/>
+        <Stack.Screen
+					name="SignUp"
+					component={SignUp}
+					options={{ title: "Login" , headerShown: false}}
+				/>
 				<Stack.Screen
 					name="Settings"
 					component={Settings}
@@ -21,7 +34,7 @@ export default function App() {
 
 				<Stack.Screen
 					name="Login"
-					component={Login}
+					component={LoginScreen}
 					options={{ title: "Login" }}
 				/>
 

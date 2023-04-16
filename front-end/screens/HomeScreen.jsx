@@ -44,7 +44,7 @@ export default function LoginScreen({navigation}) {
       </View>
 
        <View style={styles.header}>
-          <Image source={require("../assets/FullLogo.png")} style={styles.logo}/>
+          <Image source={require("../assets/transparent-logo.png")} style={styles.logo}/>
           <TouchableOpacity style={styles.profileButton}>
            
             <Dropdown/>
