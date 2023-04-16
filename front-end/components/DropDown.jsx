@@ -42,7 +42,10 @@ const Dropdown = () => {
         <View style={styles.menu}>
            <TouchableOpacity style={styles.menuItem}
           onPress={() => {
+
             navigation.pop()
+            navigation.navigate("MyEvents")
+
           }}
           >
             <Text style={styles.menuText}>Your Events</Text>
