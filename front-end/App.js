@@ -8,6 +8,7 @@ import SignUp from "./screens/SignUp";
 import CreateEventScreen from "./screens/CreateEventScreen";
 import Settings from "./screens/Settings";
 import MyEventScreen from "./screens/MyEventScreen";
+import CheckInternetScreen from "./screens/CheckInternetScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,11 @@ export default function App() {
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
+				<Stack.Screen
+					name="CheckInternet"
+					component={CheckInternetScreen}
+					options={{headerShown: false }}
+				/>
 				<Stack.Screen
 					name="Home"
 					component={HomeScreen}

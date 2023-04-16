@@ -18,11 +18,14 @@ export default function SignUp({navigation}) {
 
                 if (!result) {
                     Alert.alert("Sign Up Failed", "Unable to create account.")
-                }
+                } else {
+                navigation.navigate("Home")
+              }  
             }
 
             else {
                 Alert.alert("Welcome!")
+
             }
         }
 
