@@ -22,7 +22,7 @@ export default function EventView({ eventName, location, date, startTime, endTim
     }
 
     useEffect(() => {
-        if (currUser.uid === null) {
+        if (currUser === null) {
             return;
         }
 
