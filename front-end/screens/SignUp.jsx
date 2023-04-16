@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     },
     textLabel: {
         marginLeft: '10%',
-        fontFamily: 'Montserrat',
         fontSize: 25,
         margin: 0,
         marginBottom: '5%'
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
         marginBottom: '5%',
         height: '10%',
         paddingLeft: 10,
-        fontFamily: 'Montserrat',
+
     },
 
     signUpButton: {
@@ -106,13 +105,13 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 3,
-        shadowColor: '#3446eb',
+        // shadowColor: '#3446eb',
         justifyContent: 'center',
     },
 
     backButton: {
         width: '80%',
-        marginTop: 50,
+        marginTop: 20,
         backgroundColor: '#75c4dc',
         alignSelf: 'center',
         height: '10%',
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 3,
-        shadowColor: '#3446eb',
+        // shadowColor: '#3446eb',
         justifyContent: 'center',
     }
 

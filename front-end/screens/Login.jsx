@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
         container: {
             flex: 1,
             padding: 20,
-            backgroundColor: '#eaeaea',
+            backgroundColor: 'white',
         },
         logo: {
             flex: 1,
