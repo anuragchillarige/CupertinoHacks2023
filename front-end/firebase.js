@@ -38,14 +38,16 @@ const db = getFirestore(app);
 const login = async (email, password) => {
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
+		return true;
 	} catch (err) {
 		console.error(err);
-		alert("Invalid Email or Password");
+		return false;
 	}
 };
 
 const register = async (name, email, password) => {
 	try {
+		console.log("in regsiter function");
 		const res = await createUserWithEmailAndPassword(auth, email, password);
 		const user = res.user;
 		await addDoc(collection(db, "users"), {
@@ -54,10 +56,11 @@ const register = async (name, email, password) => {
 			authProvider: "local",
 			email,
 		});
+
+		return true;
 	} catch (err) {
-		alert(
-			"Make sure all fields are filled in correctly/This email is already in use"
-		);
+		console.log(err);
+		return false;
 	}
 };
 
