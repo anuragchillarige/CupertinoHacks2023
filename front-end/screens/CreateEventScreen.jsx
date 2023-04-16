@@ -67,6 +67,9 @@ export default function CreateEventScreen({ navigation }) {
                 submitData()
                 navigation.navigate("Home")
             }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Create Event</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.signUpButton} onPress={() => {
+                navigation.pop()
+            }}><Text style={{ color: 'white', textAlign: 'center', fontSize: 18, }}>Back</Text></TouchableOpacity>
             <View style={{ flex: 0.4, marginTop: 20 }}>
                 <TextInput style={styles.inputField} placeholder='Description' value={description} onChangeText={(newText) => setDescription(newText)} />
             </View>
